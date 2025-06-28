@@ -1,0 +1,26 @@
+/* style.css */
+body { font-family: sans-serif; background-color: #f0f0f0; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+.main-container { text-align: center; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 0 15px rgba(0,0,0,0.1); }
+.form-container input { display: block; margin: 10px auto; padding: 10px; width: 200px; }
+.form-container button { padding: 10px 20px; margin: 5px; cursor: pointer; }
+.error { color: red; }
+.game-container { width: 100vw; height: 100vh; background: white; display: flex; flex-direction: column; box-shadow: 0 0 15px rgba(0,0,0,0.1); box-sizing: border-box; }
+.top-bar { padding: 10px; background: #eee; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ccc; flex-wrap: wrap; }
+.main-content { display: flex; flex: 1; overflow: hidden; flex-direction: column; }
+.players-panel { border-bottom: 1px solid #ccc; padding: 10px; background: #f9f9f9; }
+.canvas-container { flex: 1; display: flex; flex-direction: column; }
+#drawing-canvas { border: 1px solid #000; cursor: crosshair; background-color: #fff; width: 100%; display: block; }
+.controls { padding: 5px; text-align: center; }
+.chat-panel { border-top: 1px solid #ccc; display: flex; flex-direction: column; height: 200px; }
+#chat-box { flex: 1; padding: 10px; overflow-y: auto; border-bottom: 1px solid #ccc; }
+#chat-box p { margin: 5px 0; }
+.chat-panel input { border: none; padding: 10px; width: calc(100% - 70px); }
+.chat-panel button { padding: 10px; width: 60px; }
+@media (min-width: 768px) {
+    .game-container { width: 95vw; height: 95vh; }
+    .main-content { flex-direction: row; }
+    .players-panel { width: 200px; border-right: 1px solid #ccc; border-bottom: none; }
+    .chat-panel { width: 300px; border-left: 1px solid #ccc; border-top: none; height: auto; }
+    .chat-panel input { width: auto; }
+    .chat-panel button { width: auto; }
+}

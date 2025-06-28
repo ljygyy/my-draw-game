@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>你画我猜 - 主界面</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="main-container">
+        <h1>你画我猜</h1>
+        <div class="form-container">
+            <input type="text" id="username" placeholder="输入你的昵称">
+            <input type="text" id="room" placeholder="输入房间号">
+            <button id="createRoomBtn">创建房间</button>
+            <button id="joinRoomBtn">加入房间</button>
+        </div>
+        <p id="error-msg" class="error"></p>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const usernameInput = document.getElementById('username');
+        const roomInput = document.getElementById('room');
+        const createRoomBtn = document.getElementById('createRoomBtn');
+        const joinRoomBtn = document.getElementById('joinRoomBtn');
+        const errorMsg = document.getElementById('error-msg');
+        function joinOrCreate(action) {
+            const username = usernameInput.value.trim();
+            const room = roomInput.value.trim();
+            if (!username || !room) {
+                errorMsg.textContent = '昵称和房间号不能为空！';
+                return;
+            }
+            sessionStorage.setItem('username', username);
+            sessionStorage.setItem('room', room);
+            if(action === 'create') {
+                 window.location.href = `game.html?action=create`;
+            } else {
+                 window.location.href = `game.html?action=join`;
+            }
+        }
+        createRoomBtn.addEventListener('click', () => joinOrCreate('create'));
+        joinRoomBtn.addEventListener('click', () => joinOrCreate('join'));
+    </script>
+</body>
+</html>

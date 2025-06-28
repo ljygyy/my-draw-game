@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>游戏房间</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="game-container">
+        <div class="top-bar">
+            <h2 id="room-title">房间: </h2>
+            <div id="word-display">轮到 <span id="current-drawer-name">---</span> 画画，提示：<span id="word-hint">---</span></div>
+            <button id="startGameBtn">开始游戏</button>
+        </div>
+        <div class="main-content">
+            <div class="players-panel">
+                <h3>玩家列表</h3>
+                <ul id="player-list"></ul>
+            </div>
+            <div class="canvas-container">
+                <canvas id="drawing-canvas"></canvas>
+                <div class="controls">
+                    <button id="clear-btn">清空画布</button>
+                </div>
+            </div>
+            <div class="chat-panel">
+                <h3>聊天 & 猜词</h3>
+                <div id="chat-box"></div>
+                <input type="text" id="message-input" placeholder="在这里输入猜测或聊天内容...">
+                <button id="send-btn">发送</button>
+            </div>
+        </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+</body>
+</html>
